@@ -1,3 +1,3 @@
-import { Game } from "./modules/game";
+import { Game } from "./modules/game.js";
 
 new Game();
