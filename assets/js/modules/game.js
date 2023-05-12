@@ -1,4 +1,8 @@
 import { Background } from "./background.js";
+import { Player } from "./player.js";
+import { InputHandler } from "./input-handler.js";
+import { Bird } from "./bird.js";
+import { BirdPool } from "./birds-pool.js";
 
 export class Game {
     score = 0;
@@ -13,9 +17,17 @@ export class Game {
 
         this.ctx = this.canvas.getContext("2d");
 
+        this.inputHandler = new InputHandler();
+
         this.background = new Background(this.ctx);
 
+        this.player = new Player(this);
+
+        this.bird = new Bird(this);
+        this.birdPool = new BirdPool(this);
+
         this.animate(0);
+        this.lastTimeStamp = 0;
     }
 
     /**
@@ -30,6 +42,11 @@ export class Game {
 
         this.background.draw();
         this.background.update(deltaTime);
+
+        this.birdPool.render(timeStamp, deltaTime);
+
+        this.player.draw();
+        this.player.update(timeStamp);
 
         window.requestAnimationFrame(this.animate);
     };
