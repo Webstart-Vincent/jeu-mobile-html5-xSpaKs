@@ -73,7 +73,7 @@ canvas {
 
     .menubutton {
         width: 80px;
-        height: 80px;
+        height: 89px;
     }
 
     .rightrow {
@@ -83,7 +83,7 @@ canvas {
 
     .strikerbutton {
         width: 70px;
-        height: 100px;
+        height: 104px;
 
         position: absolute;
         right: 10px;
