@@ -26,28 +26,51 @@ export class Game {
         this.bird = new Bird(this);
         this.birdPool = new BirdPool(this);
 
+        if (window.innerWidth < 580) setTimeout(this.hideWarning, 3000);
+        if (window.innerWidth >= 580) this.hideWarning();
+
         this.animate(0);
         this.lastTimeStamp = 0;
     }
+
+    hideWarning = () => {
+        document.querySelector(".welcome").style.display = "none";
+        document.querySelector(".jeu").style.display = "grid";
+    };
 
     /**
      * Description
      *  @param {number} timeStamp
      */
     animate = (timeStamp) => {
-        const deltaTime = timeStamp - this.lastTimeStamp;
-        this.lastTimeStamp = timeStamp;
+        if (document.querySelector(".jeu").style.display == "grid") {
+            const deltaTime = timeStamp - this.lastTimeStamp;
+            this.lastTimeStamp = timeStamp;
 
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.background.draw();
-        this.background.update(deltaTime);
+            this.background.draw();
+            this.background.update(deltaTime);
 
-        this.birdPool.render(timeStamp, deltaTime);
+            this.birdPool.render(timeStamp, deltaTime);
 
-        this.player.draw();
-        this.player.update(timeStamp);
-
+            this.player.draw();
+            this.player.update(timeStamp);
+        }
         window.requestAnimationFrame(this.animate);
+    };
+
+    pauseResumeMode = () => {
+        if (this.inputHandler.has(Key.Pause)) this.pauseGame;
+        else if (this.inputHandler.has(Key.Resume)) this.resumeGame;
+    };
+
+    pauseGame = () => {
+        console.log("p");
+        cancelAnimationFrame(this.animate);
+    };
+
+    resumeGame = () => {
+        requestAnimationFrame(this.animate);
     };
 }

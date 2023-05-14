@@ -1,0 +1,38 @@
+{
+    "short_name": "Color Meow",
+    "name": "Color Meow, the Game",
+    "icons": [
+        {
+            "src": "./assets/img/button-player.png",
+            "type": "image/png",
+            "sizes": "494x512"
+        },
+        {
+            "src": "./assets/img/menu-button.png",
+            "type": "image/png",
+            "sizes": "344x512"
+        },
+        {
+            "src": "./assets/img/strike-button.png",
+            "type": "image/png",
+            "sizes": "462x512"
+        },
+        {
+            "src": "./assets/img/life-01.png",
+            "type": "image/png",
+            "sizes": "529x512"
+        },
+        {
+            "src": "./assets/img/Jauge.png",
+            "type": "image/png",
+            "sizes": "529x512"
+        }
+    ],
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#FFFFFF",
+    "description": "Web game about a cat shooting down birds"
+}
