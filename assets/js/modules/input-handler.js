@@ -19,6 +19,5 @@ export const Key = Object.freeze({
     ArrowRight: "ArrowRight",
     Space: "Space",
     Enter: "Enter",
-    Pause: "P",
-    Resume: "R",
+    KeyP: "KeyP",
 });

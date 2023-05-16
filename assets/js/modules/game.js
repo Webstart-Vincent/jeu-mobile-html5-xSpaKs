@@ -1,6 +1,7 @@
 import { Background } from "./background.js";
 import { Player } from "./player.js";
 import { InputHandler } from "./input-handler.js";
+import { Key } from "./input-handler.js";
 import { Bird } from "./bird.js";
 import { BirdPool } from "./birds-pool.js";
 
@@ -16,6 +17,7 @@ export class Game {
         this.canvas.height = 360;
 
         this.ctx = this.canvas.getContext("2d");
+        this.isPaused = false;
 
         this.inputHandler = new InputHandler();
 
@@ -50,27 +52,24 @@ export class Game {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
             this.background.draw();
-            this.background.update(deltaTime);
 
             this.birdPool.render(timeStamp, deltaTime);
 
             this.player.draw();
-            this.player.update(timeStamp);
+
+            if (this.isPaused == false) {
+                this.background.update(deltaTime);
+                this.player.update(timeStamp);
+            }
         }
+
+        if (this.inputHandler.keys.has(Key.KeyP)) {
+            if (this.isPaused == true) this.isPaused = false;
+            else this.isPaused = true;
+        }
+        console.log(this.isPaused);
         window.requestAnimationFrame(this.animate);
     };
 
-    pauseResumeMode = () => {
-        if (this.inputHandler.has(Key.Pause)) this.pauseGame;
-        else if (this.inputHandler.has(Key.Resume)) this.resumeGame;
-    };
-
-    pauseGame = () => {
-        console.log("p");
-        cancelAnimationFrame(this.animate);
-    };
-
-    resumeGame = () => {
-        requestAnimationFrame(this.animate);
-    };
+    pauseGame = () => {};
 }
