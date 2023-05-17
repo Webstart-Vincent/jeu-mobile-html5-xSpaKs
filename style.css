@@ -10,8 +10,6 @@
 
 .mainframe {
     margin: auto;
-    border: solid;
-    height: 74.2%;
 }
 
 .button {
@@ -94,7 +92,6 @@
 
     .mainframe {
         position: relative;
-        border: 0;
         height: auto;
     }
 

@@ -35,7 +35,7 @@ export class Bird {
         this.destinationX = this.canvasWidth;
         this.destinationY =
             Math.random() * (this.canvasHeight - this.frameHeight);
-        this.speed = Math.random();
+        this.speed = Math.random() * 100 + 300;
     };
 
     draw() {
@@ -53,7 +53,7 @@ export class Bird {
     }
 
     update(timeStamp, deltaTime) {
-        const frameIndex = Math.floor(timeStamp / this.fps) % this.framesLength;
+        const frameIndex = Math.floor(timeStamp / this.fps) % this.frameLength;
         this.sourceX = frameIndex * this.frameWidth;
 
         this.destinationX -= (deltaTime * this.speed) / 1000;

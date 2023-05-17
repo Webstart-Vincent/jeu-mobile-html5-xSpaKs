@@ -67,9 +67,6 @@ export class Game {
             if (this.isPaused == true) this.isPaused = false;
             else this.isPaused = true;
         }
-        console.log(this.isPaused);
         window.requestAnimationFrame(this.animate);
     };
-
-    pauseGame = () => {};
 }

@@ -8,6 +8,8 @@ export class BirdPool {
      */
     constructor(game) {
         /** @type {Bird[]} */
+
+        this.game = game;
         this.birds = [];
 
         this.resetTimer();
