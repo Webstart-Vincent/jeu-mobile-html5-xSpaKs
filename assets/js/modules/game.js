@@ -17,7 +17,7 @@ export class Game {
         this.canvas.height = 360;
 
         this.ctx = this.canvas.getContext("2d");
-        this.isPaused = false;
+        this.isPaused = true;
 
         this.inputHandler = new InputHandler();
 
@@ -30,6 +30,7 @@ export class Game {
 
         if (window.innerWidth < 580) setTimeout(this.hideWarning, 3000);
         if (window.innerWidth >= 580) this.hideWarning();
+        this.isPaused = false;
 
         this.animate(0);
         this.lastTimeStamp = 0;

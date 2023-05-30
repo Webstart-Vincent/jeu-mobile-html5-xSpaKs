@@ -19,8 +19,8 @@ export class Bird {
         this.canvasWidth = canvas.width;
         this.canvasHeight = canvas.height;
 
-        this.frameWidth = 150;
-        this.frameHeight = 210;
+        this.frameWidth = 75;
+        this.frameHeight = 105;
 
         this.reset();
     }
@@ -35,7 +35,7 @@ export class Bird {
         this.destinationX = this.canvasWidth;
         this.destinationY =
             Math.random() * (this.canvasHeight - this.frameHeight);
-        this.speed = Math.random() * 100 + 300;
+        this.speed = Math.random() * 100 + 200;
     };
 
     draw() {
